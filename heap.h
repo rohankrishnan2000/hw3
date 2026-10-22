@@ -64,7 +64,7 @@ private:
   /// Add whatever helper functions and data members you need below
   int m_;
   PComparator comp_;
-  std::vector<T> data_
+  std::vector<T> data_;
 };
 
 // Add implementation of member functions here
@@ -101,7 +101,7 @@ void Heap<T,PComparator>::push(const T& item)
   size_t index = data_.size() - 1;
 
   while(index > 0) {
-    size_t parent = index / m_;
+    size_t parent = (index - 1) / m_;
     if(!comp_(data_[index], data_[parent])) {
       break;
     }
@@ -157,7 +157,7 @@ void Heap<T,PComparator>::pop()
 
     for(int i = 0; i < m_; i++) {
       size_t child = firstChild + i;
-      if(child < data_.size() && comp_(data_[best], data_[child])) {
+      if(child < data_.size() && comp_(data_[child], data_[best])) {
         best = child;
       }
     }

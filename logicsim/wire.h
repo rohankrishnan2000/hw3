@@ -1,5 +1,6 @@
 #ifndef WIRE_H
 #define WIRE_H
+#include <cstdint>
 #include <string>
 
 class Wire 
